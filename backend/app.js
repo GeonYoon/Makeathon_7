@@ -3,44 +3,40 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var MongoClient = require('mongodb').MongoClient;
-var serialPort = require('serialprt');
-var stringDecoder = require('string_decoder').StringDecoder;
-
-var mongoUrl = 'mongodb://localhost:27017/makeathon';
-var port = new serialPort('/dev/ttyACM0', {
-  baudRate: 9600
-});
-
 var indexRouter = require('./routes/index');
+var destinationRouter = require('./routes/destination')
+var SerialPort = require("serialport");
+var StringDecoder = require('string_decoder').StringDecoder;
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-app.use(logger('dev'));
+app.use(logger('dev'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/', indexRouter);
+app.use('/destination', destinationRouter);
 
+var port = new SerialPort('/dev/ttyACM0',{
+  baudRate: 9600
+});
 var line = '';
 var sensor_value = '';
-
-port.on('data', function(data) {
-  var decoder = new stringDecoder('utf8');
+port.on('data', function (data){
+  var decoder = new StringDecoder('utf8');
   var textData = decoder.write(data);
-  line += textData;
-  var li = line.split('\n');
+  line += textData
+  console.log(line)
+  var li = line.split("\n");
+  console.log(li)
   if(li.length>1){
     sensor_value = li[li.length-2]
     line = ''
   }
-  console.log(sensor_value)
 })
 
 app.listen(6508, function () {
