@@ -3,6 +3,8 @@ import '../custom.css'
 import {Card, CardTitle} from 'react-materialize'
 import myimage from '../images/HangJu_SanSung.jpeg'
 import {Redirect} from "react-router-dom";
+import socketIOClient from "socket.io-client";
+
 
 
 // const iconPath = process.env.PUBLIC_URL + '/assets/icons/';
@@ -15,6 +17,16 @@ const Color = ({ color, active, onClick}) => {
 }
 
 class Main extends Component {
+    componentDidMount() {
+       // const { endpoint } = this.state;
+       const {seatbelt_on, update_socket} = this.props;
+       const socket = socketIOClient("http://127.0.0.1:6508");
+       // socket.on("off", data => this.setState({ response: data.data }));
+       // socket.on("off", data => console.log("action_off function here"))
+       socket.on("busData", data => update_socket(data))
+
+     }
+
     render(){
         const { stations, current_location, onSelect, seatbelt_on} = this.props;
         const colorList = stations.map(

@@ -45,6 +45,7 @@ app.post('/destination', function (req, res) {
 
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
+
   setInterval(function () {
     if (sensor_value==='0') {
       socket.emit('busData', {seat: false, belt: false, stop: false})
@@ -64,7 +65,6 @@ io.on('connection', function (socket) {
       socket.emit('busData', {seat: true, belt: true, stop: true})
     }
   }, 1000)
-
 })
 
 server.listen(6508, function () {
