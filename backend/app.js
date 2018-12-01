@@ -40,16 +40,36 @@ port.on('data', function (data){
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
   setInterval(function () {
-    console.log(sensor_value)
+    // console.log(sensor_value)
+    switch(sensor_value) {
+      case 0:
+        socket.emit('busData', {seat: false, belt: false, stop: false})
+        break;
+      case 1:
+        socket.emit('busData', {seat: false, belt: false, stop: true})
+        break;
+      case 2:
+        socket.emit('busData', {seat: false, belt: true, stop: false})
+        break;
+      case 3:
+        socket.emit('busData', {seat: false, belt: true, stop: true})
+        break;
+      case 4:
+        socket.emit('busData', {seat: true, belt: false, stop: false})
+        break;
+      case 5:
+        socket.emit('busData', {seat: true, belt: false, stop: true})
+        break;
+      case 6:
+        socket.emit('busData', {seat: true, belt: true, stop: false})
+        break;
+      case 7:
+        socket.emit('busData', {seat: true, belt: true, stop: true})
+        break;
+      default:
+        break;
+    }
   }, 1000)
-  
-  // if(li.length>1){
-  //   sensor_value = li[li.length-2]
-  //   line = ''
-  // }
-  // li = li[0].split(',')
-  // console.log()
-  // socket.emit('off', {type:'CHECK', data:'good day!'});
 
 })
 
