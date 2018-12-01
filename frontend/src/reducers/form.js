@@ -11,13 +11,14 @@ const formInitialState = {
   output: null,
 
   seatbelt : true,
-  // vibration : false,
   destination : '',
   qr_code : '',
   recommanded_sub_locataions : '',
   recommanded_pose : '',
   color : '#343a40',
   colors :['#343a40', '#f03e3e', '#12b886', '#228ae6'],
+  seat : false,
+
 
   current_location : {id:1,"name":"Starfield","color":"343a40","description":"Here is Starfield","img_path" : '../images/starfield.jpeg'},
   stations : [{

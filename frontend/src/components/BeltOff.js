@@ -6,7 +6,6 @@ import socketIOClient from "socket.io-client";
 class Login extends Component {
 
   componentDidMount() {
-<<<<<<< HEAD
      // const { endpoint } = this.state;
      const {seatbelt_on, update_socket} = this.props;
      const socket = socketIOClient("http://127.0.0.1:6508");
@@ -15,14 +14,6 @@ class Login extends Component {
      socket.on("busData", data => update_socket(data))
 
    }
-=======
-       // const { endpoint } = this.state;
-       const {seatbelt_on, action_off} = this.props;
-       const socket = socketIOClient("http://192.168.0.103:6508");
-       // socket.on("test", data => this.setState({ response: data }));
-       socket.on("on", data => console.log("action_off function here"))
-     }
->>>>>>> 621351c1fa419d02b3f255e810eaa34f063f726b
 
   render() {
     const seatbelt_on = this.props.seatbelt_on
