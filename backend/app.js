@@ -20,7 +20,12 @@ app.use(cookieParser());
 app.use('/main', indexRouter);
 // app.use('/destination', destinationRouter);
 app.post('/destination', function(req, res, next) {
-  console.log(req.body.destination)
+  var destination = req.body.destination
+  console.log(destination)
+  // if(destination == '') {
+
+  // } else if()
+  // res.send('ok')
 })
 app.use(express.static(path.join(__dirname, 'public')));
 
