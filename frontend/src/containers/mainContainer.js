@@ -29,12 +29,12 @@ const mapStateToProps = ({form}) => {
       // color : form.color
     }
 };
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch,ownProps) => ({
   updateColor : (color) => {
     dispatch(updateColor(color));
   },
   update_socket: (data) => {
-    dispatch(update_socket(data));
+    dispatch(update_socket(data,ownProps.history));
   }
 });
 

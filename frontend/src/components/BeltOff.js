@@ -11,7 +11,7 @@ class Login extends Component {
      const socket = socketIOClient("http://127.0.0.1:6508");
      // socket.on("off", data => this.setState({ response: data.data }));
      // socket.on("off", data => console.log("action_off function here"))
-     socket.on("busData", data => update_socket(data))
+     socket.on("busData", data => update_socket(data,this.props.history))
 
    }
 
@@ -23,6 +23,7 @@ class Login extends Component {
             <div style ={{ textAlign : 'center'}}>
               <h1>Seat Belt Off</h1>
               Fasten Your Seat Belt On Please
+              <h3>{this.props.error}</h3>
             </div>
           );
   }

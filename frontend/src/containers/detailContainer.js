@@ -8,20 +8,24 @@ import {update_socket} from '../actions';
 
 class detailContainer extends Component {
   render() {
-    const { seatbelt_on, update_socket } = this.props;
+    const { seatbelt_on, update_socket, current_location } = this.props;
     return <Detail
               seatbelt_on={seatbelt_on}
               update_socket = {update_socket}
+              current_location = {current_location}
             />;
   }
 }
 
 const mapStateToProps = ({form}) => {
-    return {seatbelt_on : form.seatbelt}
+    return {
+              seatbelt_on : form.seatbelt,
+              current_location : form.current_location
+           }
 };
 const mapDispatchToProps = (dispatch, ownProps) => ({
   update_socket: (data) => {
-    dispatch(update_socket(data));
+    dispatch(update_socket(data,ownProps.history));
   }
 });
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(detailContainer));

@@ -1,6 +1,5 @@
-export const FORM_SUCCESS = 'FORM/FORM_SUCCESS';
 export const UPDATE_COLOR = 'FORM/UPDATE_COLOR';
-export const CHECK = 'FORM/CHECK';
-
-export const ON = 'FORM/ON';
-export const OFF = 'FORM/OFF';
+export const NOT_WEARING_BELT = 'FROM/NOT_WEARING_BELT';
+export const SEAT_BUT_NOT_BELT = 'FORM/SEAT_BUT_NOT_BELT';
+export const STILL_GOING = 'FORM/STILL_GOING';
+export const ARRIVE = 'FORM/ARRIVE'

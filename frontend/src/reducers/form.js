@@ -1,24 +1,19 @@
 import {
-  FORM_SUCCESS,
   UPDATE_COLOR,
-  CHECK,
-  ON,
-  OFF
+  NOT_WEARING_BELT,
+  SEAT_BUT_NOT_BELT,
+  STILL_GOING,
+  ARRIVE
 } from '../actions/types';
 import { handleActions } from 'redux-actions';
 
 const formInitialState = {
   output: null,
 
-  seatbelt : true,
-  destination : '',
-  qr_code : '',
-  recommanded_sub_locataions : '',
-  recommanded_pose : '',
-  color : '#343a40',
-  colors :['#343a40', '#f03e3e', '#12b886', '#228ae6'],
+  seatbelt : false,
   seat : false,
   stop : false,
+  error : '',
   current_location : {id:1,"name":"Starfield","color":"343a40","description":"Here is Starfield","img_path" : '../images/starfield.jpeg'},
   stations : [{
       id : 1,
@@ -54,27 +49,28 @@ export default handleActions({
               current_location : value
            };
   },
-  [FORM_SUCCESS] : (state, action) => {
-
+  [NOT_WEARING_BELT] : (state, action) => {
     return { ...state,
-             output : action.title
+            seatbelt : false,
            };
   },
-  [CHECK] : (state, action) => {
-    console.log("got here");
-    console.log(action.data);
+  [SEAT_BUT_NOT_BELT] : (state, action) => {
     return { ...state,
+            seatbelt : false,
+            error : 'Sitting is not enough! Fasten your Seat Belt!!!!!'
            };
   },
-  [ON] : (state, action) => {
-    console.log("action_on");
+  [STILL_GOING] : (state, action) => {
     return { ...state,
-            seatbelt : true
+            seatbelt : true,
+            error : ''
            };
   },
-  [OFF] : (state, action) => {
+  [ARRIVE] : (state, action) => {
     return { ...state,
-            seatbelt : false
+            seatbelt : true,
+            error : '',
+            stop: 'true'
            };
-  }
+  },
 }, formInitialState)
