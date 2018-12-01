@@ -59,7 +59,6 @@ export default handleActions({
            };
   },
   [CHECK] : (state, action) => {
-    console.log(aciton.data);
     return { ...state,
            };
   }
