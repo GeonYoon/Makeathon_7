@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
-// var destinationRouter = require('./routes/destination')
+var destinationRouter = require('./routes/destination')
 var SerialPort = require("serialport");
 var StringDecoder = require('string_decoder').StringDecoder;
 var app = express();
@@ -17,9 +17,9 @@ app.use(logger('dev'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use('/main', indexRouter);
-// app.use('/destination', destinationRouter);
+app.use('/destination', destinationRouter);
+app.use(express.static(path.join(__dirname, 'public')));
 
 var port = new SerialPort('/dev/ttyACM0',{
   baudRate: 9600
@@ -36,12 +36,6 @@ port.on('data', function (data){
     sensor_value = li[0]
     line = ''
   }
-})
-
-app.post('/destination', function (req, res) {
-  var destination = req.body.destination;
-  console.log(req.body.destination)
-  res.send({'hamster': 1})
 })
 
 io.on('connection', function (socket) {
