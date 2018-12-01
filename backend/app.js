@@ -10,6 +10,8 @@ var StringDecoder = require('string_decoder').StringDecoder;
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var spawn = require('child_process').spawn,
+    py    = spawn('python', ['pose_recognizer.py'])
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -19,12 +21,27 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/main', indexRouter);
 // app.use('/destination', destinationRouter);
+dataString = ''
+
+py.stdout.on('data', function(data){
+  console.log(data)
+  dataString = data;
+});
+py.stdout.on('end', function(){
+  console.log(1);
+})
+
 app.post('/destination', function(req, res, next) {
   var destination = req.body.destination
-  console.log(destination)
-  // if(destination == '') {
-
-  // } else if()
+  if(destination == 'IKEA') {
+    py.stdin.write(__dirname+'/public/assets/ikea')
+  } else if(destination == 'HangJu_SanSung') {
+    py.stdin.write(__dirname+'/public/assets/hangju')
+  } else if(destination == 'KWave_Gallery') {
+    py.stdin.write(__dirname+'/public/assets/kwave')
+  } else if(destination == 'Starfield') {
+    py.stdin.write(__dirname+'/public/assets/starfield')
+  }
   res.send('ok')
 })
 app.use(express.static(path.join(__dirname, 'public')));
