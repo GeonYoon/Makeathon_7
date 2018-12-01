@@ -23,21 +23,21 @@ app.use('/main', indexRouter);
 
 dataString = ''
 
-var imageArray = '스타필드,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-23-50.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-24-47.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-25-15.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-26-06.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-26-30.jpeg'
+var imageArray = '/assets/starfield/KakaoTalk_Photo_2018-12-02-06-23-50.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-24-47.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-25-15.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-26-06.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-26-30.jpeg'
 
 app.post('/destination', function(req, res, next) {
   var destination = req.body.destination
   if(destination == 'IKEA') {
-    imageArray = '이케아,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-28-16.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-28-35.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-28-41.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-29-09.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-29-24.jpeg'
+    imageArray = '/assets/ikea/KakaoTalk_Photo_2018-12-02-06-28-16.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-28-35.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-28-41.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-29-09.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-29-24.jpeg'
 
   } else if(destination == 'HangJu_SanSung') {
-    imageArray ='행주산성,/assets/hangju/KakaoTalk_Photo_2018-12-02-06-32-35.jpeg,/assets/hangju/KakaoTalk_Photo_2018-12-02-06-33-38.jpeg,/assets/hangju/KakaoTalk_Photo_2018-12-02-06-34-05.jpeg,/assets/hangju/KakaoTalk_Photo_2018-12-02-06-34-09.jpeg,/assets/hangju/KakaoTalk_Photo_2018-12-02-06-35-06.jpeg'
+    imageArray ='/assets/hangju/KakaoTalk_Photo_2018-12-02-06-32-35.jpeg,/assets/hangju/KakaoTalk_Photo_2018-12-02-06-33-38.jpeg,/assets/hangju/KakaoTalk_Photo_2018-12-02-06-34-05.jpeg,/assets/hangju/KakaoTalk_Photo_2018-12-02-06-34-09.jpeg,/assets/hangju/KakaoTalk_Photo_2018-12-02-06-35-06.jpeg'
 
   } else if(destination == 'KWave_Gallery') {
-    imageArray = '신한류,/assets/kwave/KakaoTalk_Photo_2018-12-02-06-35-40.jpeg,/assets/kwave/KakaoTalk_Photo_2018-12-02-06-36-00.jpeg,/assets/kwave/KakaoTalk_Photo_2018-12-02-06-36-14.jpeg, /assets/kwave/KakaoTalk_Photo_2018-12-02-06-36-44.jpeg, /assets/kwave/KakaoTalk_Photo_2018-12-02-06-37-18.jpeg'
+    imageArray = '/assets/kwave/KakaoTalk_Photo_2018-12-02-06-35-40.jpeg,/assets/kwave/KakaoTalk_Photo_2018-12-02-06-36-00.jpeg,/assets/kwave/KakaoTalk_Photo_2018-12-02-06-36-14.jpeg, /assets/kwave/KakaoTalk_Photo_2018-12-02-06-36-44.jpeg, /assets/kwave/KakaoTalk_Photo_2018-12-02-06-37-18.jpeg'
 
   } else if(destination == 'Starfield') {
-    imageArray = '스타필드,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-23-50.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-24-47.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-25-15.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-26-06.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-26-30.jpeg'
+    imageArray = '/assets/starfield/KakaoTalk_Photo_2018-12-02-06-23-50.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-24-47.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-25-15.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-26-06.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-26-30.jpeg'
   }
   res.send('ok')
 })
@@ -61,32 +61,32 @@ port.on('data', function (data){
   }
 })
 
-io.on('connection', function (socket) {
-  console.log('connect with' + socket.id)
-  setInterval(function () {
-    // if(sensor_value !== sensor_value_prev){
-      if (sensor_value==='0') {
-        socket.emit('busData', {seat: false, belt: false, stop: false, image: ''})
-      } else if(sensor_value==='1') {
-        socket.emit('busData', {seat: false, belt: false, stop: true, image: imageArray})
-      } else if(sensor_value==='2') {
-        socket.emit('busData', {seat: false, belt: true, stop: false, image: ''})
-      } else if(sensor_value==='3') {
-        socket.emit('busData', {seat: false, belt: true, stop: true, image: imageArray})
-      } else if(sensor_value==='4') {
-        socket.emit('busData', {seat: true, belt: false, stop: false, image: ''})
-      } else if(sensor_value==='5') {
-        socket.emit('busData', {seat: true, belt: false, stop: true, image: imageArray})
-      } else if(sensor_value==='6') {
-        socket.emit('busData', {seat: true, belt: true, stop: false, image: ''})
-      } else if(sensor_value==='7') {
-        socket.emit('busData', {seat: true, belt: true, stop: true, image: imageArray})
-      }
-    //   sensor_value_prev = sensor_value;
-    // }
-
-  }, 1000)
-})
+// io.on('connection', function (socket) {
+//   console.log('connect with' + socket.id)
+//   setInterval(function () {
+//     // if(sensor_value !== sensor_value_prev){
+//       if (sensor_value==='0') {
+//         socket.emit('busData', {seat: false, belt: false, stop: false, image: ''})
+//       } else if(sensor_value==='1') {
+//         socket.emit('busData', {seat: false, belt: false, stop: true, image: imageArray})
+//       } else if(sensor_value==='2') {
+//         socket.emit('busData', {seat: false, belt: true, stop: false, image: ''})
+//       } else if(sensor_value==='3') {
+//         socket.emit('busData', {seat: false, belt: true, stop: true, image: imageArray})
+//       } else if(sensor_value==='4') {
+//         socket.emit('busData', {seat: true, belt: false, stop: false, image: ''})
+//       } else if(sensor_value==='5') {
+//         socket.emit('busData', {seat: true, belt: false, stop: true, image: imageArray})
+//       } else if(sensor_value==='6') {
+//         socket.emit('busData', {seat: true, belt: true, stop: false, image: ''})
+//       } else if(sensor_value==='7') {
+//         socket.emit('busData', {seat: true, belt: true, stop: true, image: imageArray})
+//       }
+//     //   sensor_value_prev = sensor_value;
+//     // }
+//
+//   }, 1000)
+// })
 
 server.listen(6508, function () {
   console.log("Server running on 6508");

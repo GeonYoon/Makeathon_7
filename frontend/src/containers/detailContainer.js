@@ -8,11 +8,12 @@ import {update_socket} from '../actions';
 
 class detailContainer extends Component {
   render() {
-    const { seatbelt_on, update_socket, current_location } = this.props;
+    const { seatbelt_on, update_socket, current_location,photos } = this.props;
     return <Detail
               seatbelt_on={seatbelt_on}
               update_socket = {update_socket}
               current_location = {current_location}
+              photos = {photos.split(',')}
             />;
   }
 }
@@ -20,7 +21,8 @@ class detailContainer extends Component {
 const mapStateToProps = ({form}) => {
     return {
               seatbelt_on : form.seatbelt,
-              current_location : form.current_location
+              current_location : form.current_location,
+              photos : form.photos
            }
 };
 const mapDispatchToProps = (dispatch, ownProps) => ({

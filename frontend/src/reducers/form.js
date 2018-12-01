@@ -71,12 +71,11 @@ export default handleActions({
            };
   },
   [ARRIVE] : (state, action) => {
-    console.log(action);
     return { ...state,
             seatbelt : true,
             error : '',
             stop: 'true',
-            photos :''
+            photos :action.payload
            };
   },
 }, formInitialState)

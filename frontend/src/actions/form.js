@@ -16,7 +16,7 @@ export const updateColor = (value) => async dispatch => {
 
 export const update_socket = (data,history) => async dispatch => {
   const {seat, belt, stop, image} = data;
-  console.log(data)
+
   // console.log(seat);
   // console.log(belt);
   // console.log(stop);
@@ -24,7 +24,7 @@ export const update_socket = (data,history) => async dispatch => {
   // nothing will happen
 
   if(belt==false && seat==true){
-    console.log("안긴했는데 벨트안맴 -> 경고메세지")
+    console.log("앉기는 했지만 벨트안맴 -> 경고메세지")
     dispatch({type : SEAT_BUT_NOT_BELT})
     history.push('/')
   }
@@ -34,12 +34,12 @@ export const update_socket = (data,history) => async dispatch => {
     history.push('/')
   }
   else if(belt==true && seat == true && stop == false){
-    console.log("안고 맸는데, 도착을안함")
+    console.log("좌석에안고 안전벨트 착용했지만, 도착을안함")
     dispatch({type : STILL_GOING})
     history.push('/main')
   }
   else if(belt==true && seat == true && stop == true){
-    console.log("안고,매고,도착")
+    console.log("좌석에 앉고, 안전벨트 착용하고, 목적지에 도착")
     dispatch({type : ARRIVE, payload : image});
     history.push('/detail');
   }

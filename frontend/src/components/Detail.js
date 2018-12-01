@@ -64,64 +64,19 @@ class Detail extends Component {
 
 
                 <div className="graycard">
-                    <div className="col s2">
-                          <div className="card blue-grey darken-1">
-                            <div className="card-content white-text">
-                              <span className="card-title">pose_1</span>
-                              <p>I am a very simple card. I am good at containing small bits of information.
-                              I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div className="col s2">
-                          <div className="card blue-grey darken-1">
-                            <div className="card-content white-text">
-                              <span className="card-title">pose_2</span>
-                              <p>I am a very simple card. I am good at containing small bits of information.
-                              I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col s2">
-                          <div className="card blue-grey darken-1">
-                            <div className="card-content white-text">
-                              <span className="card-title">Pose_3</span>
-                              <p>I am a very simple card. I am good at containing small bits of information.
-                              I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col s2">
-                          <div className="card blue-grey darken-1">
-                            <div className="card-content white-text">
-                              <span className="card-title">Pose_4</span>
-                              <p>I am a very simple card. I am good at containing small bits of information.
-                              I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col s2">
-                          <div className="card blue-grey darken-1">
-                            <div className="card-content white-text">
-                              <span className="card-title">Pose_5</span>
-                              <p>I am a very simple card. I am good at containing small bits of information.
-                              I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col s2">
-                          <div className="card blue-grey darken-1">
-                            <div className="card-content white-text">
-                              <span className="card-title">Pose_6</span>
-                              <p>I am a very simple card. I am good at containing small bits of information.
-                              I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                        </div>
+
+                <div className="row">
+                   <div className="col 2">
+                     <div className="card">
+                       <div className="card-image">
+                         <img src="images/sample-1.jpg" />
+                         <span className="card-title">Card Title</span>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
                 </div>
-
-
-            </div>
+                </div>
 
         )
     }
