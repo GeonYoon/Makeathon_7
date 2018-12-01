@@ -49,6 +49,7 @@ var port = new SerialPort('/dev/ttyACM0',{
 
 var line = '';
 var sensor_value = '';
+var sensor_value_prev = '';
 port.on('data', function (data){
   var decoder = new StringDecoder('utf8');
   var textData = decoder.write(data);
@@ -62,28 +63,28 @@ port.on('data', function (data){
 
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
-  socket.on('message', function(data) {
-    console.log(data)
-  })
   setInterval(function () {
-  console.log(imageArray)
-    if (sensor_value==='0') {
-      socket.emit('busData', {seat: false, belt: false, stop: false})
-    } else if(sensor_value==='1') {
-      socket.emit('busData', {seat: false, belt: false, stop: true})
-    } else if(sensor_value==='2') {
-      socket.emit('busData', {seat: false, belt: true, stop: false})
-    } else if(sensor_value==='3') {
-      socket.emit('busData', {seat: false, belt: true, stop: true})
-    } else if(sensor_value==='4') {
-      socket.emit('busData', {seat: true, belt: false, stop: false})
-    } else if(sensor_value==='5') {
-      socket.emit('busData', {seat: true, belt: false, stop: true})
-    } else if(sensor_value==='6') {
-      socket.emit('busData', {seat: true, belt: true, stop: false})
-    } else if(sensor_value==='7') {
-      socket.emit('busData', {seat: true, belt: true, stop: true})
+    if(sensor_value !== sensor_value_prev){
+      if (sensor_value==='0') {
+        socket.emit('busData', {seat: false, belt: false, stop: false})
+      } else if(sensor_value==='1') {
+        socket.emit('busData', {seat: false, belt: false, stop: true})
+      } else if(sensor_value==='2') {
+        socket.emit('busData', {seat: false, belt: true, stop: false})
+      } else if(sensor_value==='3') {
+        socket.emit('busData', {seat: false, belt: true, stop: true})
+      } else if(sensor_value==='4') {
+        socket.emit('busData', {seat: true, belt: false, stop: false})
+      } else if(sensor_value==='5') {
+        socket.emit('busData', {seat: true, belt: false, stop: true})
+      } else if(sensor_value==='6') {
+        socket.emit('busData', {seat: true, belt: true, stop: false})
+      } else if(sensor_value==='7') {
+        socket.emit('busData', {seat: true, belt: true, stop: true})
+      }
+      sensor_value_prev = sensor_value;
     }
+    
   }, 1000)
 })
 
