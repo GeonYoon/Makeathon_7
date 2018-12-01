@@ -39,7 +39,10 @@ port.on('data', function (data){
 })
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
-  console.log(sensor_value)
+  setTimeout(function () {
+    console.log(sensor_value)
+  }, 1000)
+  
   // if(li.length>1){
   //   sensor_value = li[li.length-2]
   //   line = ''
