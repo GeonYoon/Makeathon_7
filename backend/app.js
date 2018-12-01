@@ -41,6 +41,7 @@ port.on('data', function (data){
 app.post('/destination', function (req, res) {
   var destination = req.body.destination;
   console.log(req.body.destination)
+  res.send({'hamster': 1})
 })
 
 io.on('connection', function (socket) {
