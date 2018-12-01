@@ -17,7 +17,7 @@ export const form = (about1, about2, history) => async dispatch => {
 
 export const updateColor = (value) => async dispatch => {
     const sending = {"destination" : value.name}
-    const res = await axios.post('http://192.168.0.103:6508/destination/',sending)
+    axios.post('http://192.168.0.103:6508/destination/',sending)
     dispatch({ type : UPDATE_COLOR, payload : value});
 }
 
