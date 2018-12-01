@@ -40,11 +40,16 @@ var sensor_value = '';
 //     line = ''
 //   }
 // })
-// io.attach(server);
+
+
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
-  socket.emit('test', 'ok')
+  // socket.emit('action', 'ok')
+  socket.emit('off', {type:'CHECK', data:'good day!'});
 })
+
+
+
 server.listen(6508, function () {
   console.log("Server running on 6508");
 });

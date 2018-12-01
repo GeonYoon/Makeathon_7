@@ -1,7 +1,9 @@
 import {
   FORM_SUCCESS,
   UPDATE_COLOR,
-  CHECK
+  CHECK,
+  ON,
+  OFF
 } from '../actions/types';
 import { handleActions } from 'redux-actions';
 
@@ -59,7 +61,21 @@ export default handleActions({
            };
   },
   [CHECK] : (state, action) => {
+    console.log("got here");
+    console.log(action.data);
     return { ...state,
+           };
+  },
+  [ON] : (state, action) => {
+    console.log("action_on");
+    return { ...state,
+            seatbelt : true
+           };
+  },
+  [OFF] : (state, action) => {
+    console.log("action_off");
+    return { ...state,
+            seatbelt : false
            };
   }
 }, formInitialState)

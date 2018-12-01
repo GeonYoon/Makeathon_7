@@ -4,7 +4,9 @@ import axios from 'axios';
 import {
   FORM_SUCCESS,
   UPDATE_COLOR,
-  CHECK
+  CHECK,
+  ON,
+  OFF
 } from './types';
 
 export const form = (about1, about2, history) => async dispatch => {
@@ -17,6 +19,14 @@ export const form = (about1, about2, history) => async dispatch => {
 
 export const updateColor = (value) => async dispatch => {
     dispatch({ type : UPDATE_COLOR, payload : value});
+}
+
+export const on = () => async dispatch => {
+  dispatch({ type : ON});
+}
+
+export const off = () => async dispatch => {
+  dispatch({ type : OFF});
 }
 
 // export const checkConnection = () => async dispatch => {

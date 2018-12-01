@@ -7,26 +7,28 @@ import socketIOClient from "socket.io-client";
 
 
 class Detail extends Component {
-    constructor() {
-       super();
-       this.state = {
-         response: '',
-         endpoint: "http://127.0.0.1:6508"
-       };
-     }
+    // constructor() {
+    //    super();
+    //    this.state = {
+    //      response: '',
+    //      endpoint: "http://127.0.0.1:6508"
+    //    };
+    //  }
 
      componentDidMount() {
-        const { endpoint } = this.state;
-        const socket = socketIOClient(endpoint);
-        socket.on("test", data => this.setState({ response: data }));
+        // const { endpoint } = this.state;
+        const {seatbelt_on, action_off} = this.props;
+        const socket = socketIOClient("http://127.0.0.1:6508");
+        // socket.on("test", data => this.setState({ response: data }));
+        socket.on("off", data => console.log("action_off function here"))
       }
 
     render(){
-        console.log(this.state.response);
+        // console.log(this.state.response);
         return (
             <div className = "row">
                 <div className = "container">
-
+               HI
                 </div>
             </div>
 
