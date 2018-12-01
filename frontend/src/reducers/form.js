@@ -1,6 +1,7 @@
 import {
   FORM_SUCCESS,
-  UPDATE_COLOR
+  UPDATE_COLOR,
+  CHECK
 } from '../actions/types';
 import { handleActions } from 'redux-actions';
 
@@ -55,6 +56,11 @@ export default handleActions({
 
     return { ...state,
              output : action.title
+           };
+  },
+  [CHECK] : (state, action) => {
+    console.log(aciton.data);
+    return { ...state,
            };
   }
 }, formInitialState)
