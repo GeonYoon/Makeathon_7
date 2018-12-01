@@ -17,9 +17,12 @@ app.use(logger('dev'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use('/main', indexRouter);
 // app.use('/destination', destinationRouter);
+app.post('/destination', function(req, res, next) {
+  console.log(req.body.destination)
+})
+app.use(express.static(path.join(__dirname, 'public')));
 
 var port = new SerialPort('/dev/ttyACM0',{
   baudRate: 9600
@@ -38,15 +41,11 @@ port.on('data', function (data){
   }
 })
 
-app.post('/destination', function (req, res) {
-  var destination = req.body.destination;
-  console.log(req.body.destination)
-  res.send({'hamster': 1})
-})
-
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
-
+  socket.on('message', function(data) {
+    console.log(data)
+  })
   setInterval(function () {
     if (sensor_value==='0') {
       socket.emit('busData', {seat: false, belt: false, stop: false})
