@@ -31,10 +31,7 @@ port.on('data', function (data){
   var decoder = new StringDecoder('utf8');
   var textData = decoder.write(data);
   line += textData
-  console.log(line)
   var li = line.split("\n");
-  console.log(li)
-  console.log(li[0])
   if(li.length>1){
     sensor_value = li[0]
     line = ''
