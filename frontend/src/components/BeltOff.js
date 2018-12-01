@@ -7,7 +7,7 @@ class Login extends Component {
   componentDidMount() {
        // const { endpoint } = this.state;
        const {seatbelt_on, action_off} = this.props;
-       const socket = socketIOClient("http://127.0.0.1:6508");
+       const socket = socketIOClient("http://192.168.0.103:6508");
        // socket.on("test", data => this.setState({ response: data }));
        socket.on("on", data => console.log("action_off function here"))
      }
