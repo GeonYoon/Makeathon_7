@@ -6,6 +6,12 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "@tensorflow-models/coco-ssd": "^0.1.1",
+    "@tensorflow-models/mobilenet": "^0.2.2",
+    "@tensorflow-models/posenet": "^0.2.3",
+    "@tensorflow/tfjs": "^0.14.0",
+    "@tensorflow/tfjs-node": "^0.1.21",
+    "@tensorflow/tfjs-node-gpu": "^0.1.21",
     "axios": "^0.18.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
