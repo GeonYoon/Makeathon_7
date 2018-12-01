@@ -15,7 +15,7 @@ export const updateColor = (value) => async dispatch => {
 }
 
 export const update_socket = (data,history) => async dispatch => {
-  const {seat, belt, stop, arr} = data;
+  const {seat, belt, stop, image} = data;
   console.log(data)
   // console.log(seat);
   // console.log(belt);
@@ -40,7 +40,7 @@ export const update_socket = (data,history) => async dispatch => {
   }
   else if(belt==true && seat == true && stop == true){
     console.log("안고,매고,도착")
-    dispatch({type : ARRIVE, payload : arr});
+    dispatch({type : ARRIVE, payload : image});
     history.push('/detail');
   }
   else{
