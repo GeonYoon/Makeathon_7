@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
-var destinationRouter = require('./routes/destination')
+// var destinationRouter = require('./routes/destination')
 var SerialPort = require("serialport");
 var StringDecoder = require('string_decoder').StringDecoder;
 var app = express();
@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/main', indexRouter);
-app.use('/destination', destinationRouter);
+// app.use('/destination', destinationRouter);
 
 var port = new SerialPort('/dev/ttyACM0',{
   baudRate: 9600
@@ -37,37 +37,31 @@ port.on('data', function (data){
     line = ''
   }
 })
+
+app.post('/destination', function (req, res) {
+  var destination = req.body.destination;
+  console.log(req.body.destination)
+})
+
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
   setInterval(function () {
-    // console.log(sensor_value)
-    switch(sensor_value) {
-      case 0:
-        socket.emit('busData', {seat: false, belt: false, stop: false})
-        break;
-      case 1:
-        socket.emit('busData', {seat: false, belt: false, stop: true})
-        break;
-      case 2:
-        socket.emit('busData', {seat: false, belt: true, stop: false})
-        break;
-      case 3:
-        socket.emit('busData', {seat: false, belt: true, stop: true})
-        break;
-      case 4:
-        socket.emit('busData', {seat: true, belt: false, stop: false})
-        break;
-      case 5:
-        socket.emit('busData', {seat: true, belt: false, stop: true})
-        break;
-      case 6:
-        socket.emit('busData', {seat: true, belt: true, stop: false})
-        break;
-      case 7:
-        socket.emit('busData', {seat: true, belt: true, stop: true})
-        break;
-      default:
-        break;
+    if (sensor_value==='0') {
+      socket.emit('busData', {seat: false, belt: false, stop: false})
+    } else if(sensor_value==='1') {
+      socket.emit('busData', {seat: false, belt: false, stop: true})
+    } else if(sensor_value==='2') {
+      socket.emit('busData', {seat: false, belt: true, stop: false})
+    } else if(sensor_value==='3') {
+      socket.emit('busData', {seat: false, belt: true, stop: true})
+    } else if(sensor_value==='4') {
+      socket.emit('busData', {seat: true, belt: false, stop: false})
+    } else if(sensor_value==='5') {
+      socket.emit('busData', {seat: true, belt: false, stop: true})
+    } else if(sensor_value==='6') {
+      socket.emit('busData', {seat: true, belt: true, stop: false})
+    } else if(sensor_value==='7') {
+      socket.emit('busData', {seat: true, belt: true, stop: true})
     }
   }, 1000)
 
