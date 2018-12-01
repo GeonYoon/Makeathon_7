@@ -43,7 +43,7 @@ var sensor_value = '';
 // io.attach(server);
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
-  socket.emit('action', {type:'CHECK', data: 'good day!'})
+  socket.emit('test', 'ok')
 })
 server.listen(6508, function () {
   console.log("Server running on 6508");
