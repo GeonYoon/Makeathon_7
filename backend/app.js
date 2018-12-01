@@ -64,7 +64,7 @@ port.on('data', function (data){
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
   setInterval(function () {
-    if(sensor_value !== sensor_value_prev){
+    // if(sensor_value !== sensor_value_prev){
       if (sensor_value==='0') {
         socket.emit('busData', {seat: false, belt: false, stop: false, image: ''})
       } else if(sensor_value==='1') {
@@ -82,8 +82,8 @@ io.on('connection', function (socket) {
       } else if(sensor_value==='7') {
         socket.emit('busData', {seat: true, belt: true, stop: true, image: imageArray})
       }
-      sensor_value_prev = sensor_value;
-    }
+    //   sensor_value_prev = sensor_value;
+    // }
 
   }, 1000)
 })
