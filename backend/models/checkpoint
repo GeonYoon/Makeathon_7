@@ -1,0 +1,2 @@
+model_checkpoint_path: "recognizer_pose_model"
+all_model_checkpoint_paths: "recognizer_pose_model"
