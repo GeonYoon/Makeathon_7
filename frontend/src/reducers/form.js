@@ -71,7 +71,7 @@ export default handleActions({
            };
   },
   [ARRIVE] : (state, action) => {
-    console.log(action.payload);
+    console.log(action);
     return { ...state,
             seatbelt : true,
             error : '',
