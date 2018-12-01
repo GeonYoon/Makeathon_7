@@ -21,7 +21,7 @@ export const form = (about1, about2, history) => async dispatch => {
 export const updateColor = (value) => async dispatch => {
     const sending = {"destination" : value.name}
     // const res = await axios.post('http://192.168.0.103:6508/destination/',sending)
-    const socket = socketIOClient("http://127.0.0.1:6508");
+    const socket = socketIOClient("http://192.168.0.103:6508");
     socket.emit("message",{"destination" : value.name})
 
     dispatch({ type : UPDATE_COLOR, payload : value});
