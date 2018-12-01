@@ -27,28 +27,25 @@ var port = new SerialPort('/dev/ttyACM0',{
 
 var line = '';
 var sensor_value = '';
-
-port.on('data', function (data){
-  var decoder = new StringDecoder('utf8');
-  var textData = decoder.write(data);
-  line += textData
-  console.log(line)
-  var li = line.split("\n");
-  console.log(li)
-  if(li.length>1){
-    sensor_value = li[li.length-2]
-    line = ''
-  }
-})
-
-
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
-  // socket.emit('action', 'ok')
-  socket.emit('off', {type:'CHECK', data:'good day!'});
+  port.on('data', function (data){
+    var decoder = new StringDecoder('utf8');
+    var textData = decoder.write(data);
+    line += textData
+    console.log(line)
+    var li = line.split("\n");
+    console.log(li)
+    console.log(li[0])
+    // if(li.length>1){
+    //   sensor_value = li[li.length-2]
+    //   line = ''
+    // }
+    // li = li[0].split(',')
+    // console.log()
+    // socket.emit('off', {type:'CHECK', data:'good day!'});
+  })
 })
-
-
 
 server.listen(6508, function () {
   console.log("Server running on 6508");
