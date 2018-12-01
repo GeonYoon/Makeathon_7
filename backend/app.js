@@ -25,10 +25,10 @@ dataString = ''
 
 py.stdout.on('data', function(data){
   console.log(data)
-  dataString = data;
+  dataString+= data.toString();
 });
 py.stdout.on('end', function(){
-  console.log(1);
+  console.log(dataString);
 })
 
 app.post('/destination', function(req, res, next) {
@@ -42,6 +42,7 @@ app.post('/destination', function(req, res, next) {
   } else if(destination == 'Starfield') {
     py.stdin.write(__dirname+'/public/assets/starfield')
   }
+  py.stdin.end();
   res.send('ok')
 })
 app.use(express.static(path.join(__dirname, 'public')));
