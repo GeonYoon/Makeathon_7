@@ -8,16 +8,19 @@ Author: Taemin Choi
 Email: choitm0707@kist.re.kr
 Last edited: November 2018
 """
-def read_in():
-    lines = sys.stdin.readlines()
-    return lines[0]
+
 
 import os
 import numpy as np
+import sys
 import tensorflow as tf
 from PIL import Image, ImageFilter
 from collections import Counter
 import random
+
+def read_in():
+    lines = sys.stdin.readlines()
+    return lines[0]
 
 class PoseRecognizer(object):
     """
