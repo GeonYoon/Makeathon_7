@@ -25,7 +25,7 @@ app.post('/destination', function(req, res, next) {
   // if(destination == '') {
 
   // } else if()
-  // res.send('ok')
+  res.send('ok')
 })
 app.use(express.static(path.join(__dirname, 'public')));
 
