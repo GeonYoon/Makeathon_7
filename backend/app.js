@@ -44,6 +44,7 @@ port.on('data', function (data){
 
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
+  socket.emit('test', 'ok')
 })
 server.listen(6508, function () {
   console.log("Server running on 6508");
