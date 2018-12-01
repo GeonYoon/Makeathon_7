@@ -13,7 +13,7 @@ window.axios = axios;
 
 
 
-let socket = io('http://127.0.0.1:6508');
+let socket = io('http://192.168.0.103:6508');
 let socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
 
 //const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();

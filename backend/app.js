@@ -21,34 +21,44 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/main', indexRouter);
 app.use('/destination', destinationRouter);
 
-// var port = new SerialPort('/dev/ttyACM0',{
-//   baudRate: 9600
-// });
+var port = new SerialPort('/dev/ttyACM0',{
+  baudRate: 9600
+});
 
 var line = '';
 var sensor_value = '';
-
-// port.on('data', function (data){
-//   var decoder = new StringDecoder('utf8');
-//   var textData = decoder.write(data);
-//   line += textData
-//   console.log(line)
-//   var li = line.split("\n");
-//   console.log(li)
-//   if(li.length>1){
-//     sensor_value = li[li.length-2]
-//     line = ''
-//   }
-// })
-
-
+port.on('data', function (data){
+  var decoder = new StringDecoder('utf8');
+  var textData = decoder.write(data);
+  line += textData
+  var li = line.split("\n");
+  if(li.length>1){
+    sensor_value = li[0]
+    line = ''
+  }
+})
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
+<<<<<<< HEAD
   // socket.emit('action', 'ok')
   socket.emit('busData', {seat : true, belt : true, stop:true});
 })
 
+=======
+  setInterval(function () {
+    console.log(sensor_value)
+  }, 1000)
+  
+  // if(li.length>1){
+  //   sensor_value = li[li.length-2]
+  //   line = ''
+  // }
+  // li = li[0].split(',')
+  // console.log()
+  // socket.emit('off', {type:'CHECK', data:'good day!'});
+>>>>>>> 621351c1fa419d02b3f255e810eaa34f063f726b
 
+})
 
 server.listen(6508, function () {
   console.log("Server running on 6508");
