@@ -5,8 +5,7 @@ import {
   FORM_SUCCESS,
   UPDATE_COLOR,
   CHECK,
-  ON,
-  OFF
+  ON
 } from './types';
 
 export const form = (about1, about2, history) => async dispatch => {
@@ -18,15 +17,32 @@ export const form = (about1, about2, history) => async dispatch => {
 }
 
 export const updateColor = (value) => async dispatch => {
+    const sending = {"destination" : value.name}
+    const res = await axios.post('http://192.168.0.103:6508/destination/',sending)
     dispatch({ type : UPDATE_COLOR, payload : value});
 }
 
-export const on = () => async dispatch => {
-  dispatch({ type : ON});
-}
+export const update_socket = (data) => async dispatch => {
+  const {seat, belt, stop} = data;
+  // console.log(seat);
+  // console.log(belt);
+  // console.log(stop);
 
-export const off = () => async dispatch => {
-  dispatch({ type : OFF});
+  // nothing will happen
+  if(belt==false){
+    console.log("벨트안하면 아무것도못함")
+
+  }
+  else if(belt==true && seat == true && stop == true){
+    console.log("안고,매고,도착")
+  }
+  else if(belt==true && seat == true && stop == false){
+    console.log("안고 맸는데, 도착을안함")
+  }
+  else{
+    console.log("안긴했느데 벨트안맴 -> 경고메세지")
+  }
+  // dispatch({ type : ON, payload : });
 }
 
 // export const checkConnection = () => async dispatch => {

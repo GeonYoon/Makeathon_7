@@ -11,6 +11,9 @@ import Detail from './Detail'
 
 import HeaderContainer from '../containers/headerContainer';
 import MainContainer from '../containers/mainContainer';
+import DetailContainer from '../containers/detailContainer';
+import BeltOffContainer from '../containers/beltOffContainer';
+
 
 import BeltRoute from '../containers/beltRoute';
 
@@ -25,9 +28,9 @@ class App extends Component {
                 <div>
                   <HeaderContainer />
                   <Switch>
-                    <Route exact path="/" component={BeltOff} />
+                    <Route exact path="/" component={BeltOffContainer} />
                     <BeltRoute exact path="/main" component={MainContainer} />
-                    <BeltRoute exact path="/detail" component={Detail} />
+                    <BeltRoute exact path="/detail" component={DetailContainer} />
 
                   </Switch>
                 </div>

@@ -2,19 +2,22 @@ import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
 import socketIOClient from "socket.io-client";
 
+
 class Login extends Component {
 
   componentDidMount() {
-       // const { endpoint } = this.state;
-       const {seatbelt_on, action_off} = this.props;
-       const socket = socketIOClient("http://127.0.0.1:6508");
-       // socket.on("test", data => this.setState({ response: data }));
-       socket.on("on", data => console.log("action_off function here"))
-     }
+     // const { endpoint } = this.state;
+     const {seatbelt_on, update_socket} = this.props;
+     const socket = socketIOClient("http://127.0.0.1:6508");
+     // socket.on("off", data => this.setState({ response: data.data }));
+     // socket.on("off", data => console.log("action_off function here"))
+     socket.on("busData", data => update_socket(data))
+
+   }
 
   render() {
     const seatbelt_on = this.props.seatbelt_on
-    return !seatbelt_on
+    return seatbelt_on
           ? (<Redirect to="/main" />)
           : (
             <div style ={{ textAlign : 'center'}}>

@@ -45,7 +45,7 @@ var sensor_value = '';
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
   // socket.emit('action', 'ok')
-  socket.emit('off', {type:'CHECK', data:'good day!'});
+  socket.emit('busData', {seat : true, belt : true, stop:true});
 })
 
 

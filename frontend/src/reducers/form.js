@@ -11,7 +11,7 @@ const formInitialState = {
   output: null,
 
   seatbelt : true,
-  vibration : false,
+  // vibration : false,
   destination : '',
   qr_code : '',
   recommanded_sub_locataions : '',
@@ -73,7 +73,6 @@ export default handleActions({
            };
   },
   [OFF] : (state, action) => {
-    console.log("action_off");
     return { ...state,
             seatbelt : false
            };
