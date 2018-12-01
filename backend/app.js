@@ -23,7 +23,7 @@ app.use('/main', indexRouter);
 
 dataString = ''
 
-var imageArray = '이케아,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-28-16.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-28-35.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-28-41.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-29-09.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-29-24.jpeg'
+var imageArray = '스타필드,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-23-50.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-24-47.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-25-15.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-26-06.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-26-30.jpeg'
 
 app.post('/destination', function(req, res, next) {
   var destination = req.body.destination
