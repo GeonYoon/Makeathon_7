@@ -3,6 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var MongoClient = require('mongodb').MongoClient;
+var serialPort = require('serialprt');
+var stringDecoder = require('string_decoder').StringDecoder;
+
+var mongoUrl = 'mongodb://localhost:27017/makeathon';
+var port = new serialPort('/dev/ttyACM0', {
+  baudRate: 9600
+});
 
 var indexRouter = require('./routes/index');
 
@@ -19,6 +27,21 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+
+var line = '';
+var sensor_value = '';
+
+port.on('data', function(data) {
+  var decoder = new stringDecoder('utf8');
+  var textData = decoder.write(data);
+  line += textData;
+  var li = line.split('\n');
+  if(li.length>1){
+    sensor_value = li[li.length-2]
+    line = ''
+  }
+  console.log(sensor_value)
+})
 
 app.listen(6508, function () {
   console.log("Server running on 6508");
