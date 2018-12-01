@@ -7,10 +7,9 @@ var indexRouter = require('./routes/index');
 var destinationRouter = require('./routes/destination')
 var SerialPort = require("serialport");
 var StringDecoder = require('string_decoder').StringDecoder;
-var io = require('socket.io')(server);
-
 var app = express();
 var server = require('http').Server(app);
+var io = require('socket.io')(server);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -19,32 +18,32 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', indexRouter);
+app.use('/main', indexRouter);
 app.use('/destination', destinationRouter);
 
-var port = new SerialPort('/dev/ttyACM0',{
-  baudRate: 9600
-});
+// var port = new SerialPort('/dev/ttyACM0',{
+//   baudRate: 9600
+// });
 
 var line = '';
 var sensor_value = '';
 
-port.on('data', function (data){
-  var decoder = new StringDecoder('utf8');
-  var textData = decoder.write(data);
-  line += textData
-  console.log(line)
-  var li = line.split("\n");
-  console.log(li)
-  if(li.length>1){
-    sensor_value = li[li.length-2]
-    line = ''
-  }
-})
-
+// port.on('data', function (data){
+//   var decoder = new StringDecoder('utf8');
+//   var textData = decoder.write(data);
+//   line += textData
+//   console.log(line)
+//   var li = line.split("\n");
+//   console.log(li)
+//   if(li.length>1){
+//     sensor_value = li[li.length-2]
+//     line = ''
+//   }
+// })
+// io.attach(server);
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
-  socket.emit('test', 'ok')
+  socket.emit('action', {type:'CHECK', data: 'good day!'})
 })
 server.listen(6508, function () {
   console.log("Server running on 6508");
