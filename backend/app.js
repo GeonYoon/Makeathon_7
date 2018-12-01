@@ -29,13 +29,13 @@ app.post('/destination', function(req, res, next) {
   var destination = req.body.destination
   if(destination == 'IKEA') {
     imageArray = '이케아,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-28-16.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-28-35.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-28-41.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-29-09.jpeg,/assets/ikea/KakaoTalk_Photo_2018-12-02-06-29-24.jpeg'
-   
+
   } else if(destination == 'HangJu_SanSung') {
     imageArray ='행주산성,/assets/hangju/KakaoTalk_Photo_2018-12-02-06-32-35.jpeg,/assets/hangju/KakaoTalk_Photo_2018-12-02-06-33-38.jpeg,/assets/hangju/KakaoTalk_Photo_2018-12-02-06-34-05.jpeg,/assets/hangju/KakaoTalk_Photo_2018-12-02-06-34-09.jpeg,/assets/hangju/KakaoTalk_Photo_2018-12-02-06-35-06.jpeg'
-    
+
   } else if(destination == 'KWave_Gallery') {
     imageArray = '신한류,/assets/kwave/KakaoTalk_Photo_2018-12-02-06-35-40.jpeg,/assets/kwave/KakaoTalk_Photo_2018-12-02-06-36-00.jpeg,/assets/kwave/KakaoTalk_Photo_2018-12-02-06-36-14.jpeg, /assets/kwave/KakaoTalk_Photo_2018-12-02-06-36-44.jpeg, /assets/kwave/KakaoTalk_Photo_2018-12-02-06-37-18.jpeg'
-   
+
   } else if(destination == 'Starfield') {
     imageArray = '스타필드,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-23-50.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-24-47.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-25-15.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-26-06.jpeg,/assets/starfield/KakaoTalk_Photo_2018-12-02-06-26-30.jpeg'
   }
@@ -84,7 +84,7 @@ io.on('connection', function (socket) {
       }
       sensor_value_prev = sensor_value;
     }
-    
+
   }, 1000)
 })
 

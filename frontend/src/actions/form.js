@@ -15,12 +15,13 @@ export const updateColor = (value) => async dispatch => {
 }
 
 export const update_socket = (data,history) => async dispatch => {
-  const {seat, belt, stop} = data;
+  const {seat, belt, stop, arr} = data;
   // console.log(seat);
   // console.log(belt);
   // console.log(stop);
 
   // nothing will happen
+  console.log(arr);
   if(belt==false && seat==true){
     console.log("안긴했는데 벨트안맴 -> 경고메세지")
     dispatch({type : SEAT_BUT_NOT_BELT})
