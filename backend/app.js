@@ -35,17 +35,22 @@ port.on('data', function (data){
   var li = line.split("\n");
   console.log(li)
   console.log(li[0])
-  io.on('connection', function (socket) {
-    console.log('connect with' + socket.id)
-    // if(li.length>1){
-    //   sensor_value = li[li.length-2]
-    //   line = ''
-    // }
-    // li = li[0].split(',')
-    // console.log()
-    // socket.emit('off', {type:'CHECK', data:'good day!'});
-  
-  })
+  if(li.length>1){
+    sensor_value = li[0]
+    line = ''
+  }
+})
+io.on('connection', function (socket) {
+  console.log('connect with' + socket.id)
+  console.log(sensor_value)
+  // if(li.length>1){
+  //   sensor_value = li[li.length-2]
+  //   line = ''
+  // }
+  // li = li[0].split(',')
+  // console.log()
+  // socket.emit('off', {type:'CHECK', data:'good day!'});
+
 })
 
 server.listen(6508, function () {
