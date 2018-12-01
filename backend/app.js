@@ -7,9 +7,10 @@ var indexRouter = require('./routes/index');
 var destinationRouter = require('./routes/destination')
 var SerialPort = require("serialport");
 var StringDecoder = require('string_decoder').StringDecoder;
+var io = require('socket.io')(server);
 
 var app = express();
-
+var server = require('http').Server(app);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -24,8 +25,10 @@ app.use('/destination', destinationRouter);
 var port = new SerialPort('/dev/ttyACM0',{
   baudRate: 9600
 });
+
 var line = '';
 var sensor_value = '';
+
 port.on('data', function (data){
   var decoder = new StringDecoder('utf8');
   var textData = decoder.write(data);
@@ -39,7 +42,10 @@ port.on('data', function (data){
   }
 })
 
-app.listen(6508, function () {
+io.on('connection', function (socket) {
+  console.log('connect with' + socket.id)
+})
+server.listen(6508, function () {
   console.log("Server running on 6508");
 });
 

@@ -8,7 +8,8 @@ var spawn = require('child_process').spawn,
     dataString = '';
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
+  console.log(req.body.destination)
   py.stdout.on('data', function(data){
     dataString += data.toString();
   });
