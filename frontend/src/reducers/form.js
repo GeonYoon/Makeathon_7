@@ -11,6 +11,7 @@ const formInitialState = {
   output: null,
 
   seatbelt : false,
+  photos : [],
   seat : false,
   stop : false,
   error : '',
@@ -52,25 +53,30 @@ export default handleActions({
   [NOT_WEARING_BELT] : (state, action) => {
     return { ...state,
             seatbelt : false,
+            photos : ''
            };
   },
   [SEAT_BUT_NOT_BELT] : (state, action) => {
     return { ...state,
             seatbelt : false,
-            error : 'Sitting is not enough! Fasten your Seat Belt!!!!!'
+            error : 'Sitting is not enough! Fasten your Seat Belt!!!!!',
+            photos : ''
            };
   },
   [STILL_GOING] : (state, action) => {
     return { ...state,
             seatbelt : true,
-            error : ''
+            error : '',
+            photos : ''
            };
   },
   [ARRIVE] : (state, action) => {
+    console.log(action.payload);
     return { ...state,
             seatbelt : true,
             error : '',
-            stop: 'true'
+            stop: 'true',
+            photos :''
            };
   },
 }, formInitialState)

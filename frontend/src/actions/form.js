@@ -22,10 +22,11 @@ export const update_socket = (data,history) => async dispatch => {
   // console.log(stop);
 
   // nothing will happen
-  console.log(arr);
+
   if(belt==false && seat==true){
     console.log("안긴했는데 벨트안맴 -> 경고메세지")
     dispatch({type : SEAT_BUT_NOT_BELT})
+    history.push('/')
   }
   else if(belt==false){
     console.log("벨트안하면 아무것도못함")
@@ -35,11 +36,12 @@ export const update_socket = (data,history) => async dispatch => {
   else if(belt==true && seat == true && stop == false){
     console.log("안고 맸는데, 도착을안함")
     dispatch({type : STILL_GOING})
+    history.push('/main')
   }
   else if(belt==true && seat == true && stop == true){
     console.log("안고,매고,도착")
-    dispatch({type : ARRIVE})
-    history.push('/detail')
+    dispatch({type : ARRIVE, payload : arr});
+    history.push('/detail');
   }
   else{
     console.log("nothing")
