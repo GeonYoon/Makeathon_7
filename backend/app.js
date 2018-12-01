@@ -22,25 +22,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/destination', destinationRouter);
 
-// var port = new SerialPort('/dev/ttyACM0',{
-//   baudRate: 9600
-// });
+var port = new SerialPort('/dev/ttyACM0',{
+  baudRate: 9600
+});
 
 var line = '';
 var sensor_value = '';
 
-// port.on('data', function (data){
-//   var decoder = new StringDecoder('utf8');
-//   var textData = decoder.write(data);
-//   line += textData
-//   console.log(line)
-//   var li = line.split("\n");
-//   console.log(li)
-//   if(li.length>1){
-//     sensor_value = li[li.length-2]
-//     line = ''
-//   }
-// })
+port.on('data', function (data){
+  var decoder = new StringDecoder('utf8');
+  var textData = decoder.write(data);
+  line += textData
+  console.log(line)
+  var li = line.split("\n");
+  console.log(li)
+  if(li.length>1){
+    sensor_value = li[li.length-2]
+    line = ''
+  }
+})
 
 io.on('connection', function (socket) {
   console.log('connect with' + socket.id)
