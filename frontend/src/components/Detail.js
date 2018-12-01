@@ -22,8 +22,59 @@ class Detail extends Component {
         return (
             <div className = "row">
                 <div className = "container">
-                This is Detail Page <br />
-                Only shown when you get close to your destination.
+                <div>
+                    <div className="col s7">
+                      <h1> Destination </h1>
+                    </div>
+                    <div className="col s5">
+                      <h1> QR_Code </h1>
+                    </div>
+                </div>
+
+                <div>
+                <div class="col s4">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                          <span class="card-title">Card Title</span>
+                          <p>I am a very simple card. I am good at containing small bits of information.
+                          I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-action">
+                          <a href="#">This is a link</a>
+                          <a href="#">This is a link</a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col s4">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                          <span class="card-title">Card Title</span>
+                          <p>I am a very simple card. I am good at containing small bits of information.
+                          I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-action">
+                          <a href="#">This is a link</a>
+                          <a href="#">This is a link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s4">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                          <span class="card-title">Card Title</span>
+                          <p>I am a very simple card. I am good at containing small bits of information.
+                          I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-action">
+                          <a href="#">This is a link</a>
+                          <a href="#">This is a link</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
                 </div>
             </div>
 

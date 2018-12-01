@@ -18,8 +18,7 @@ const formInitialState = {
   color : '#343a40',
   colors :['#343a40', '#f03e3e', '#12b886', '#228ae6'],
   seat : false,
-
-
+  stop : false,
   current_location : {id:1,"name":"Starfield","color":"343a40","description":"Here is Starfield","img_path" : '../images/starfield.jpeg'},
   stations : [{
       id : 1,
