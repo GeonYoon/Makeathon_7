@@ -16,6 +16,7 @@ export const updateColor = (value) => async dispatch => {
 
 export const update_socket = (data,history) => async dispatch => {
   const {seat, belt, stop, arr} = data;
+  console.log(data)
   // console.log(seat);
   // console.log(belt);
   // console.log(stop);
