@@ -27,16 +27,16 @@ var port = new SerialPort('/dev/ttyACM0',{
 
 var line = '';
 var sensor_value = '';
-io.on('connection', function (socket) {
-  console.log('connect with' + socket.id)
-  port.on('data', function (data){
-    var decoder = new StringDecoder('utf8');
-    var textData = decoder.write(data);
-    line += textData
-    console.log(line)
-    var li = line.split("\n");
-    console.log(li)
-    console.log(li[0])
+port.on('data', function (data){
+  var decoder = new StringDecoder('utf8');
+  var textData = decoder.write(data);
+  line += textData
+  console.log(line)
+  var li = line.split("\n");
+  console.log(li)
+  console.log(li[0])
+  io.on('connection', function (socket) {
+    console.log('connect with' + socket.id)
     // if(li.length>1){
     //   sensor_value = li[li.length-2]
     //   line = ''
@@ -44,6 +44,7 @@ io.on('connection', function (socket) {
     // li = li[0].split(',')
     // console.log()
     // socket.emit('off', {type:'CHECK', data:'good day!'});
+  
   })
 })
 
