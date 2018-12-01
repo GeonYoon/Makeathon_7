@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
-var destinationRouter = require('./routes/destination')
+// var destinationRouter = require('./routes/destination')
 var SerialPort = require("serialport");
 var StringDecoder = require('string_decoder').StringDecoder;
 var app = express();
@@ -18,7 +18,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/main', indexRouter);
-app.use('/destination', destinationRouter);
+// app.use('/destination', destinationRouter);
+app.post('/destination', function(req, res, next) {
+  console.log(req.body.destination)
+})
 app.use(express.static(path.join(__dirname, 'public')));
 
 var port = new SerialPort('/dev/ttyACM0',{
