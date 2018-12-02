@@ -67,8 +67,8 @@ class Detail extends Component {
                 {this.props.photos.map((post) =>
                     <div className="col s2">
                       <div className="card blue-grey darken-1">
-                        <div className="card-content white-text">
-                          <img src={post} alt="image" className="card-image"/>
+                        <div className="card-image white-text">
+                          <img src={post} alt="image" />
                           <p>I am a very simple card. I am good at containing small bits of information.
                           I am convenient because I require little markup to use effectively.</p>
                         </div>
