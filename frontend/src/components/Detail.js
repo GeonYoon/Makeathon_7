@@ -11,7 +11,7 @@ class Detail extends Component {
      componentDidMount() {
         // const { endpoint } = this.state;
         const {seatbelt_on, update_socket} = this.props;
-        const socket = socketIOClient("http://127.0.0.1:6508");
+        const socket = socketIOClient("http://192.168.0.103:6508");
         // socket.on("off", data => this.setState({ response: data.data }));
         // socket.on("off", data => console.log("action_off function here"))
         socket.on("busData", data => update_socket(data,this.props.history))
