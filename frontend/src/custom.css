@@ -56,3 +56,9 @@
   text-align: center;
   font-weight: 100;
 }
+.card-content {
+  width: 20vw;
+}
+.card-image {
+  width: 20vw;
+}
