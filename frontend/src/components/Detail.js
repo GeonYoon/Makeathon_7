@@ -11,7 +11,7 @@ class Detail extends Component {
      componentDidMount() {
         // const { endpoint } = this.state;
         const {seatbelt_on, update_socket} = this.props;
-        const socket = socketIOClient("http://192.168.0.103:6508");
+        const socket = socketIOClient("http://127.0.0.1:6508");
         // socket.on("off", data => this.setState({ response: data.data }));
         // socket.on("off", data => console.log("action_off function here"))
         socket.on("busData", data => update_socket(data,this.props.history))
@@ -64,19 +64,18 @@ class Detail extends Component {
 
 
                 <div className="graycard">
-
-                <div className="row">
-                   <div className="col 2">
-                     <div className="card">
-                       <div className="card-image">
-                         <img src="images/sample-1.jpg" />
-                         <span className="card-title">Card Title</span>
-                           </div>
-                         </div>
-                       </div>
-                     </div>
-                </div>
-                </div>
+                {this.props.photos.map((post) => {
+                    <div className="col s2">
+                      <div className="card blue-grey darken-1">
+                        <div className="card-content white-text">
+                          <img src={post} alt="image"/>
+                          <p>I am a very simple card. I am good at containing small bits of information.
+                          I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                      </div>
+                    </div>
+                })}
+               </div>
 
         )
     }
