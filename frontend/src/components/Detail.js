@@ -69,7 +69,7 @@ class Detail extends Component {
                       <div className="card blue-grey darken-1">
                         <div className="card-image white-text">
                           <img src={post} alt="image" />
-                          <p>상세 이미지</p>
+                          <p>추천 포즈</p>
                         </div>
                       </div>
                     </div>
