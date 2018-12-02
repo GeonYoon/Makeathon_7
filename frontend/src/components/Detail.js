@@ -64,7 +64,7 @@ class Detail extends Component {
 
 
                 <div className="graycard">
-                {this.props.photos.map((post) => {
+                {this.props.photos.map((post) =>
                     <div className="col s2">
                       <div className="card blue-grey darken-1">
                         <div className="card-content white-text">
@@ -74,7 +74,9 @@ class Detail extends Component {
                         </div>
                       </div>
                     </div>
-                })}
+                )}
+                </div>
+
                </div>
 
         )
