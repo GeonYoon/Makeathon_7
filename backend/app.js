@@ -61,32 +61,32 @@ port.on('data', function (data){
   }
 })
 
-// io.on('connection', function (socket) {
-//   console.log('connect with' + socket.id)
-//   setInterval(function () {
-//     // if(sensor_value !== sensor_value_prev){
-//       if (sensor_value==='0') {
-//         socket.emit('busData', {seat: false, belt: false, stop: false, image: ''})
-//       } else if(sensor_value==='1') {
-//         socket.emit('busData', {seat: false, belt: false, stop: true, image: imageArray})
-//       } else if(sensor_value==='2') {
-//         socket.emit('busData', {seat: false, belt: true, stop: false, image: ''})
-//       } else if(sensor_value==='3') {
-//         socket.emit('busData', {seat: false, belt: true, stop: true, image: imageArray})
-//       } else if(sensor_value==='4') {
-//         socket.emit('busData', {seat: true, belt: false, stop: false, image: ''})
-//       } else if(sensor_value==='5') {
-//         socket.emit('busData', {seat: true, belt: false, stop: true, image: imageArray})
-//       } else if(sensor_value==='6') {
-//         socket.emit('busData', {seat: true, belt: true, stop: false, image: ''})
-//       } else if(sensor_value==='7') {
-//         socket.emit('busData', {seat: true, belt: true, stop: true, image: imageArray})
-//       }
-//     //   sensor_value_prev = sensor_value;
-//     // }
-//
-//   }, 1000)
-// })
+io.on('connection', function (socket) {
+  console.log('connect with' + socket.id)
+  setInterval(function () {
+    // if(sensor_value !== sensor_value_prev){
+      if (sensor_value==='0') {
+        socket.emit('busData', {seat: false, belt: false, stop: false, image: ''})
+      } else if(sensor_value==='1') {
+        socket.emit('busData', {seat: false, belt: false, stop: true, image: imageArray})
+      } else if(sensor_value==='2') {
+        socket.emit('busData', {seat: false, belt: true, stop: false, image: ''})
+      } else if(sensor_value==='3') {
+        socket.emit('busData', {seat: false, belt: true, stop: true, image: imageArray})
+      } else if(sensor_value==='4') {
+        socket.emit('busData', {seat: true, belt: false, stop: false, image: ''})
+      } else if(sensor_value==='5') {
+        socket.emit('busData', {seat: true, belt: false, stop: true, image: imageArray})
+      } else if(sensor_value==='6') {
+        socket.emit('busData', {seat: true, belt: true, stop: false, image: ''})
+      } else if(sensor_value==='7') {
+        socket.emit('busData', {seat: true, belt: true, stop: true, image: imageArray})
+      }
+    //   sensor_value_prev = sensor_value;
+    // }
+
+  }, 1000)
+})
 
 server.listen(6508, function () {
   console.log("Server running on 6508");
