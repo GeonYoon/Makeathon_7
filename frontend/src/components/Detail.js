@@ -31,7 +31,7 @@ class Detail extends Component {
                     </div>
                 </div>
 
-                <div className="graycard">
+                {/* <div className="graycard">
                     <div className="col s4">
                           <div className="card blue-grey darken-1">
                             <div className="card-content white-text">
@@ -59,7 +59,7 @@ class Detail extends Component {
                               I am convenient because I require little markup to use effectively.</p>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
 
@@ -69,8 +69,7 @@ class Detail extends Component {
                       <div className="card blue-grey darken-1">
                         <div className="card-image white-text">
                           <img src={post} alt="image" />
-                          <p>I am a very simple card. I am good at containing small bits of information.
-                          I am convenient because I require little markup to use effectively.</p>
+                          <p>상세 이미지</p>
                         </div>
                       </div>
                     </div>
