@@ -1,7 +1,7 @@
 # Makeathon_7
 메이커톤 
 
-![air skin](images/output.jpeg =100x20)
+![air skin](images/output.jpeg){:height="36px" width="36px"}.
 
 | `air` | `contrast` | `dark` |
 | --- | --- | --- |
