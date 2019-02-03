@@ -1,7 +1,7 @@
 # Makeathon_7
 메이커톤 
 
-![](images/output.jpeg){:height="700px" width="400px"}
+![a|512x397,20%](images/output.jpeg)
 
 | `air` | `contrast` | `dark` |
 | --- | --- | --- |
