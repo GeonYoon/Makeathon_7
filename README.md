@@ -4,7 +4,7 @@
 
 | `air` |
 | --- | 
-| ![dark skin](images/output.jpeg =200x100 )|
+| ![dark skin](images/output.jpeg )|
 
 
 | `air` | `contrast` | `dark` | 
