@@ -2,7 +2,7 @@
 메이커톤 
 
 
-<img src="images/output.jpeg" width="40%">.
+<img src="images/output.jpeg" width="60%">.
 
 | `air` | `contrast` | `dark` | 
 | --- | --- | --- | 
