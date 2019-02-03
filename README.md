@@ -2,10 +2,7 @@
 메이커톤 
 
 
-<img src="image" width="40%">.
-![dark skin](images/output.jpeg )
-</img>
-
+<img src="images/output.jpeg" width="40%">.
 
 | `air` | `contrast` | `dark` | 
 | --- | --- | --- | 
