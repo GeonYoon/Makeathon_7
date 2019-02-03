@@ -2,9 +2,9 @@
 메이커톤 
 
 
-| `air` |
-| --- | 
-| ![dark skin](images/output.jpeg )|
+<img src="image" width="40%">.
+![dark skin](images/output.jpeg )
+</img>
 
 
 | `air` | `contrast` | `dark` | 
