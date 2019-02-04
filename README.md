@@ -47,7 +47,7 @@ Issues:
 ## Authors
 
 * ** Geon Yoon ** - * Frontend Development * - [GeonYoon](https://github.com/GeonYoon)
-* ** JaeMoon Lee ** - * Backend Developmentk * - [JaeMoon Lee](https://github.com/ERTuringLee)
+* ** JaeMoon Lee ** - * Backend Development * - [JaeMoon Lee](https://github.com/ERTuringLee)
 * ** TaeMin ** - * Hardware Development * 
 * ** JeeYoon Lee ** - * Ideation & Presentation * 
 * ** SooYoung Lee ** - * 3D Modeling * 
