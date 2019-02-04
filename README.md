@@ -2,17 +2,17 @@
 
 <img src="images/output.jpeg" width="60%" style="text-align: center;">
 
-## Why we build this application
+## Why We Built This?
 1. There are few bus passengers who do not use a seat belt
 2. Missing the stops frequently happens to bus passengers
 3. Want to know what's the best way to take photos at certain places
 
-## How we fixed the problems? 
+## How We Fixed the Problems? 
 1. Let the passengers know when they get close to their destination through seat belt vibration
 2. Encourage the passengers to fasten their seat belt. (If they don't, the application will be frozen and give an alert)
 -3. Give some tourist attractions and famous poses that are taken in the places(such as sitting down or jumping) using trained machine learning model 
 
-## Notable features
+## Notable Features
 - Conducted image classification using Random Forests and 700+ photos to capture poses for attractions
 - Sensors are located in the miniature bus, belt, and bus stop. They are intereacted to each other and give specific sensor values depends on the cases
 - Prevented the access to certain pages without having specific requirements using react-router
@@ -22,8 +22,8 @@
 | --- | --- | --- | 
 | ![Communication](images/p1.jpg) | ![Hardware](images/p2.jpg) | ![Software](images/p3.jpg) | 
 
-## How it works
-<p style="text-align: center;">![System Map](images/tourbus.png)</p>
+## How It Works
+![System Map](images/tourbus.png)
 - When the sensors of the stops and bus get closed, a certain signal goes to the backend server
 - When the seat belts are fastened, the backend server will notice it and let the front sever know
 - When the users set the destination, the information will be sent to the backend 
