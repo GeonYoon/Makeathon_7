@@ -3,19 +3,20 @@
 <img src="images/output.jpeg" width="60%" style="text-align: center;">
 
 ## Why We Built This?
-1. There are few bus passengers who do not use a seat belt
+Issues: 
+1. There are few bus passengers who do not use seat belts
 2. Missing the stops frequently happens to bus passengers
 3. Want to know what's the best way to take photos at certain places
 
 ## How We Fixed the Problems? 
 1. Let the passengers know when they get close to their destination through seat belt vibration
 2. Encourage the passengers to fasten their seat belt. (If they don't, the application will be frozen and give an alert)
--3. Give some tourist attractions and famous poses that are taken in the places(such as sitting down or jumping) using trained machine learning model 
+3. Give some tourist attractions and famous poses that are taken in the places(such as sitting down or jumping) using trained machine learning model 
 
 ## Notable Features
 - Conducted image classification using Random Forests and 700+ photos to capture poses for attractions
 - Sensors are located in the miniature bus, belt, and bus stop. They are intereacted to each other and give specific sensor values depends on the cases
-- Prevented the access to certain pages without having specific requirements using react-router
+- Prevented the access to certain pages without having specific requirements 
 - Created the miniatures using 3D printer
 
 | `Communication` | `Hardware` | `Software` | 
@@ -34,7 +35,7 @@
 
 ## Built With
 
-* [arduino](https://www.arduino.cc/) - Used to build hardwares 
+* [Arduino](https://www.arduino.cc/) - Used to build hardwares 
 * [React](https://reactjs.org/) - Used to build client side
 * [Redux](http://redux.js.org/docs/basics/UsageWithReact.html) - Predictable state container for JavaScript apps
 * [Node.js](https://nodejs.org/en/) - Used to build client side 
